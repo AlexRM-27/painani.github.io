@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Painani: rutas de oxígeno medicinal para la CDMX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F6F8F6;--ink:#10202B;--muted:#4B5D69;--line:#D3DCD8;--panel:#FFFFFF;--accent:#1D7A5F;--accent-ink:#FFFFFF;--t1:#1D7A5F;--t2:#2F6DB5;--t3:#B77A0A;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1A1F;--ink:#E7EFEC;--muted:#9FB2AC;--line:#25363C;--panel:#14252B;--accent:#4FC4A0;--accent-ink:#062018;--t1:#4FC4A0;--t2:#6FA5E6;--t3:#E3B04B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1A1F;--ink:#E7EFEC;--muted:#9FB2AC;--line:#25363C;--panel:#14252B;--accent:#4FC4A0;--accent-ink:#062018;--t1:#4FC4A0;--t2:#6FA5E6;--t3:#E3B04B;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{font:700 1.4rem "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:.85rem 1.4rem;border-radius:8px;font-weight:600;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--t2);outline-offset:3px}
+.hero{display:grid;gap:2.5rem;grid-template-columns:1fr;align-items:center;padding:2rem 0 4.5rem}
+@media (min-width:860px){.hero{grid-template-columns:5fr 6fr}}
+.hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);font-weight:700}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34rem;margin:1.25rem 0 1.75rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.small{font-size:.9rem;color:var(--muted);margin-top:1.25rem}
+figure{margin:0}
+figcaption{font-size:.875rem;color:var(--muted);margin-top:.5rem}
+svg{width:100%;height:auto;display:block}
+.e{stroke:var(--c);stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s ease-out forwards;animation-delay:var(--d,0s)}
+.n{fill:var(--bg);stroke:var(--c);stroke-width:3;opacity:0;animation:pop .4s ease-out forwards;animation-delay:var(--d,0s)}
+.t1{--c:var(--t1)}.t2{--c:var(--t2)}.t3{--c:var(--t3)}
+.depot{fill:var(--ink)}
+.lbl{fill:var(--ink);font:600 13px "Public Sans",sans-serif}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.e{animation:none;stroke-dashoffset:0}.n{animation:none;opacity:1}}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.6rem,3.4vw,2.3rem);max-width:30rem}
+section .intro{color:var(--muted);max-width:40rem;margin:1rem 0 0}
+.steps{list-style:none;margin:2.25rem 0 0;padding:0;display:grid;gap:1.75rem;grid-template-columns:1fr}
+@media (min-width:860px){.steps{grid-template-columns:repeat(3,1fr);gap:2rem}}
+.steps li{border-top:3px solid var(--c);padding-top:1rem}
+.steps h3{font-size:1.2rem;margin-bottom:.4rem}
+.steps p{margin:0;color:var(--muted)}
+.two{display:grid;gap:2rem;grid-template-columns:1fr;margin-top:2rem}
+@media (min-width:860px){.two{grid-template-columns:1fr 1fr;gap:3rem}}
+.two h3{font-size:1.25rem;margin-bottom:.5rem}
+.two p,.two ul{margin:0;color:var(--muted)}
+.two ul{padding-left:1.2rem}
+.two li{margin:.35rem 0}
+.stat{font:700 clamp(2.4rem,6vw,4rem) "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;line-height:1}
+.fact{display:grid;gap:1.25rem;grid-template-columns:1fr;align-items:start;margin-top:2rem}
+@media (min-width:860px){.fact{grid-template-columns:auto 1fr;gap:2.5rem}}
+.fact p{margin:0;max-width:38rem}
+.note{font-size:.875rem;color:var(--muted)}
+.contact{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:2rem;margin-top:2rem}
+.contact p{margin:.4rem 0}
+footer{padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+a{color:inherit}
+</style>
+<script defer data-domain="painani.github.io" src="https://plausible.io/js/script.js"></script>
+<!-- ============ ESPACIO PARA LA ANALÍTICA ============
+Elige UNA herramienta, copia su código de seguimiento DEBAJO de este comentario y antes de la etiqueta que cierra el head.
+Los enlaces por canal (con parámetros UTM) están en enlaces-por-canal.xlsx.
+Verifica el código en el panel de la herramienta que elijas: el oficial puede cambiar.
+
+Opción A, Plausible (cambia el dominio por el de tu sitio):
+<script defer data-domain="painani.github.io" src="https://plausible.io/js/script.js"></script>
+
+Opción B, GoatCounter (cambia TUCODIGO por el tuyo):
+<script data-goatcounter="https://TUCODIGO.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+Opción C, Google Analytics 4 (cambia G-XXXXXXXXXX por tu ID de medición):
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+============ FIN DEL ESPACIO PARA LA ANALÍTICA ============ -->
+</head>
+<body>
+<header><div class="wrap"><span class="brand">Painani</span><a class="btn ghost" href="mailto:yahirsolares@ciencias.unam.mx,alejandro.ruiz@ingenieria.unam.edu?subject=Piloto%20Painani">Solicitar piloto</a></div></header>
+<main>
+<div class="wrap">
+<div class="hero">
+<div>
+<h1>Planea las rutas de oxígeno medicinal sin armarlas a mano en plena emergencia.</h1>
+<p class="lead">Painani propone cuántas unidades despachar y qué ruta sigue cada una. Nuestra meta: que cada pedido llegue en menos de 24 horas.</p>
+<div class="cta"><a class="btn" href="mailto:yahirsolares@ciencias.unam.mx,alejandro.ruiz@ingenieria.unam.edu?subject=Piloto%20Painani">Solicitar un piloto sin costo</a><a class="btn ghost" href="#como">Ver cómo funciona</a></div>
+<p class="small">Prueba académica del Posgrado en Ingeniería en Sistemas, UNAM.</p>
+</div>
+<figure>
+<svg viewBox="0 0 560 410" role="img" aria-label="Esquema de un centro de distribución conectado a tres territorios de entrega, cada uno con su propia ruta">
+<g class="t1"><line class="e" pathLength="1" x1="280" y1="210" x2="200" y2="150" style="--d:.2s"/><line class="e" pathLength="1" x1="200" y1="150" x2="130" y2="105" style="--d:.5s"/><line class="e" pathLength="1" x1="200" y1="150" x2="95" y2="185" style="--d:.5s"/><line class="e" pathLength="1" x1="130" y1="105" x2="165" y2="45" style="--d:.8s"/>
+<circle class="n" cx="200" cy="150" r="8" style="--d:.5s"/><circle class="n" cx="130" cy="105" r="8" style="--d:.8s"/><circle class="n" cx="95" cy="185" r="8" style="--d:.8s"/><circle class="n" cx="165" cy="45" r="8" style="--d:1.1s"/></g>
+<g class="t2"><line class="e" pathLength="1" x1="280" y1="210" x2="370" y2="170" style="--d:.35s"/><line class="e" pathLength="1" x1="370" y1="170" x2="450" y2="115" style="--d:.65s"/><line class="e" pathLength="1" x1="370" y1="170" x2="485" y2="215" style="--d:.65s"/><line class="e" pathLength="1" x1="485" y1="215" x2="440" y2="300" style="--d:.95s"/>
+<circle class="n" cx="370" cy="170" r="8" style="--d:.65s"/><circle class="n" cx="450" cy="115" r="8" style="--d:.95s"/><circle class="n" cx="485" cy="215" r="8" style="--d:.95s"/><circle class="n" cx="440" cy="300" r="8" style="--d:1.25s"/></g>
+<g class="t3"><line class="e" pathLength="1" x1="280" y1="210" x2="268" y2="290" style="--d:.5s"/><line class="e" pathLength="1" x1="268" y1="290" x2="185" y2="340" style="--d:.8s"/><line class="e" pathLength="1" x1="268" y1="290" x2="335" y2="370" style="--d:.8s"/><line class="e" pathLength="1" x1="185" y1="340" x2="105" y2="300" style="--d:1.1s"/>
+<circle class="n" cx="268" cy="290" r="8" style="--d:.8s"/><circle class="n" cx="185" cy="340" r="8" style="--d:1.1s"/><circle class="n" cx="335" cy="370" r="8" style="--d:1.1s"/><circle class="n" cx="105" cy="300" r="8" style="--d:1.4s"/></g>
+<rect class="depot" x="268" y="198" width="24" height="24" rx="5"/>
+<text class="lbl" x="302" y="236">Centro de distribución</text>
+</svg>
+<figcaption>Un territorio por unidad de reparto. Esquema ilustrativo.</figcaption>
+</figure>
+</div>
+
+<section>
+<h2>El oxígeno existía. Falló llegar a tiempo.</h2>
+<div class="fact">
+<div class="stat">52 millones</div>
+<div><p>de personas necesitaron oxígeno medicinal adicional en 2021 por la COVID-19. En la Ciudad de México, las familias hicieron fila en centros de recarga centralizados, sin una red de distribución domiciliaria eficiente.</p>
+<p class="note">Fuente: Comisión de The Lancet Global Health sobre seguridad del oxígeno medicinal (2025).</p></div>
+</div>
+<p class="intro">Cuando una emergencia sube la demanda, calcular rutas y flota con una hoja de cálculo toma tiempo que los pacientes no tienen.</p>
+</section>
+
+<section id="como">
+<h2>Cómo funciona</h2>
+<p class="intro">Tres pasos, desde un archivo CSV hasta un reporte por unidad.</p>
+<ol class="steps">
+<li class="t1"><h3>1. Cargas tus datos</h3><p>Ubicaciones de demanda y de centros de distribución, demanda por punto y matriz de distancias.</p></li>
+<li class="t2"><h3>2. Se reparte el territorio</h3><p>Un árbol de expansión mínima agrupa los puntos de demanda y asigna cada grupo a una unidad.</p></li>
+<li class="t3"><h3>3. Se ordenan las visitas</h3><p>La programación dinámica define la secuencia de entregas y el regreso de cada unidad.</p></li>
+</ol>
+<p class="intro">Recibes un reporte con la ruta de cada unidad: secuencia de visitas y distancia recorrida.</p>
+</section>
+
+<section>
+<h2>Un piloto sin costo, hecho a la medida de tu operación</h2>
+<div class="two">
+<div><h3>Qué te pedimos</h3><ul><li>Una conversación de 40 minutos sobre cómo asignan hoy las rutas y las unidades.</li><li>Si es posible, datos agregados por hospital o clínica. No necesitamos domicilios.</li></ul></div>
+<div><h3>Qué recibes</h3><ul><li>Una prueba del modelo con tu escenario o con datos sintéticos.</li><li>El reporte de rutas por unidad y una revisión conjunta de resultados.</li></ul></div>
+</div>
+<p class="note" style="margin-top:1.5rem">Es una prueba académica. El modelo está en etapa piloto y se mejora con lo que aprendamos de tu operación; no sustituye la validación operativa.</p>
+</section>
+
+<section>
+<h2>Para quién es</h2>
+<div class="two">
+<div><h3>Si asignas las rutas</h3><p>Coordinadores de flota, jefes de tráfico y despachadores de distribuidoras de gases medicinales y de instituciones de salud pública.</p></div>
+<div><h3>Si decides la contratación</h3><p>Direcciones de operaciones, abasto y recursos materiales que evalúan herramientas para dimensionar la flota y planear rutas bajo contingencia.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Hablemos de un piloto</h2>
+<div class="contact">
+<p>Escríbenos y agendamos la conversación.</p>
+<p><a class="btn" href="mailto:yahirsolares@ciencias.unam.mx,alejandro.ruiz@ingenieria.unam.edu?subject=Piloto%20Painani">Escribir al equipo</a></p>
+<p class="note">yahirsolares@ciencias.unam.mx · alejandro.ruiz@ingenieria.unam.edu</p>
+</div>
+</section>
+</div>
+</main>
+<footer><div class="wrap">Painani · Alejandro Ruiz Mendoza y Yahir Solares Tenorio · Programación Dinámica 2027-1, Posgrado en Ingeniería en Sistemas, UNAM.</div></footer>
+</body>
+</html>
